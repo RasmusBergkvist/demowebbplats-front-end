@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 /*-----------------------------------------------------*/
 /*---------------------TYPOGRAFI-----------------------*/
 /*-----------------------------------------------------*/
@@ -6,7 +8,7 @@ $text-size: 1rem;
 $h1-size: 3rem;
 $h2-size: 2.5rem;
 $h3-size: 2rem;
-$heading-margin-bottom: 0.5em;
+$heading-margin-bottom: 0.3em;
 
 
 /*-----------------------------------------------------*/
@@ -15,8 +17,8 @@ $heading-margin-bottom: 0.5em;
 $primary-color: #234479;
 $secondary-color: #8eadb3; 
 
-$primary-light-color: color.scale($primary-color, lightness 20%);
-$primary-dark-color: color.scale($primary-color, lightness -20%);
+$primary-light-color: color.scale($primary-color, $lightness: 20%);
+$primary-dark-color: color.scale($primary-color, $lightness: -20%);
 
 
 $background-light: #f5f5dc;
@@ -24,4 +26,5 @@ $background-dark: #2c3e50;
 
 $text-light: #ffffff;
 $text-dark: #0c0c0c;
+
 

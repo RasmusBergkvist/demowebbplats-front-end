@@ -1,10 +1,12 @@
 
 @use './variables';
+@use './mixins';
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    list-style: none;
  }
 
 body {
@@ -16,9 +18,49 @@ body {
 h1 {
    font-size: variables.$h1-size;
    color: variables.$primary-color;
+   margin-bottom: variables.$heading-margin-bottom;
 }
 
 h2 {
-   font-size: variables.$h2-size;  
+   font-size: variables.$h2-size;
+   margin-bottom: variables.$heading-margin-bottom;  
+}
+
+p {
+   line-height: 1.5;
+   font-size: variables.$text-size;
+   max-width: 65ch;
+}
+
+/*-----------------------------------------------------*/
+/*-------------------------TEMAN-----------------------*/
+/*-----------------------------------------------------*/
+
+/* Till knappen för att manuellt byta mörk eller ljus tema */
+
+body.light-theme {
+      @include mixins.theme-styles(variables.$primary-light-color, variables.$text-dark);
+}
+
+body.dark-theme {
+      @include mixins.theme-styles(variables.$primary-dark-color, variables.$text-light);
+}
+
+
+
+/*Media qureis tilll ljus eller mörk schema */
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: variables.$background-light;
+        color: variables.$text-dark;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: variables.$background-dark;
+        color: variables.$text-light;
+    }
 }
 
