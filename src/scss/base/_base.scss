@@ -1,0 +1,24 @@
+
+@use './variables';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+ }
+
+body {
+  font-family: variables.$font-stack;
+  background-color: variables.$background-light;
+  color: variables.$text-dark;
+}
+
+h1 {
+   font-size: variables.$h1-size;
+   color: variables.$primary-color;
+}
+
+h2 {
+   font-size: variables.$h2-size;  
+}
+
