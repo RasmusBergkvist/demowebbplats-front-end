@@ -52,11 +52,11 @@ footer {
 
 /* Till knappen för att manuellt byta mörk eller ljus tema */
 
-body.light-theme {
+body.light-theme, .container.light-theme {
     @include mixins.theme-styles(variables.$primary-light-color, variables.$text-dark);
 }
 
-body.dark-theme {
+body.dark-theme, .container.dark-theme {
     @include mixins.theme-styles(variables.$primary-dark-color, variables.$text-light);
 }
 

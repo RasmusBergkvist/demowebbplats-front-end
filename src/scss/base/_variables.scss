@@ -24,8 +24,6 @@ $primary-dark-color: color.scale($primary-color, $lightness: -20%);
 $background-light: #f5f5dc;
 $background-dark: #2c3e50;
 
-$background-lighter-color: color.scale($background-light, $lightness: 80%);
-
 
 $text-light: #ffffff;
 $text-dark: #0c0c0c;
