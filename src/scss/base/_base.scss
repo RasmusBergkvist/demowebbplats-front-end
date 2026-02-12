@@ -1,4 +1,3 @@
-
 @use './variables';
 @use './mixins';
 
@@ -7,29 +6,44 @@
     padding: 0;
     margin: 0;
     list-style: none;
- }
-
-body {
-  font-family: variables.$font-stack;
-  background-color: variables.$background-light;
-  color: variables.$text-dark;
 }
 
+body {
+    font-family: variables.$font-stack;
+}
+
+.container {
+    background-color: variables.$background-light;
+    color: variables.$text-dark; 
+}
+
+main {
+     min-height: 100vh;
+}
+
+
+
 h1 {
-   font-size: variables.$h1-size;
-   color: variables.$primary-color;
-   margin-bottom: variables.$heading-margin-bottom;
+    font-size: variables.$h1-size;
+    color: variables.$primary-color;
+    margin-bottom: variables.$heading-margin-bottom;
+    padding-left: 2rem;
 }
 
 h2 {
-   font-size: variables.$h2-size;
-   margin-bottom: variables.$heading-margin-bottom;  
+    font-size: variables.$h2-size;
+    margin-bottom: variables.$heading-margin-bottom;
 }
 
 p {
-   line-height: 1.5;
-   font-size: variables.$text-size;
-   max-width: 65ch;
+    line-height: 1.5;
+    font-size: variables.$text-size;
+    max-width: 65ch;
+}
+
+footer {
+    background-color: variables.$primary-dark-color;
+    color: variables.$text-light;
 }
 
 /*-----------------------------------------------------*/
@@ -39,11 +53,11 @@ p {
 /* Till knappen för att manuellt byta mörk eller ljus tema */
 
 body.light-theme {
-      @include mixins.theme-styles(variables.$primary-light-color, variables.$text-dark);
+    @include mixins.theme-styles(variables.$primary-light-color, variables.$text-dark);
 }
 
 body.dark-theme {
-      @include mixins.theme-styles(variables.$primary-dark-color, variables.$text-light);
+    @include mixins.theme-styles(variables.$primary-dark-color, variables.$text-light);
 }
 
 
@@ -63,4 +77,3 @@ body.dark-theme {
         color: variables.$text-light;
     }
 }
-

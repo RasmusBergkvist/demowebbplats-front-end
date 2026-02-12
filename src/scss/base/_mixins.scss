@@ -2,3 +2,16 @@
     background-color: $background-color;
     color: $text-color;
 }
+
+@mixin button($background-color, $text-color) {
+    background-color: $background-color;
+    color: $text-color;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

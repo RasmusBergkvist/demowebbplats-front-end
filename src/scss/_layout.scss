@@ -1,0 +1,43 @@
+@use './base/base';
+@use './base/variables';
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 150px;
+    line-height: 150px;
+}
+
+nav {
+    li {
+        display: inline-block;
+        text-decoration: none;
+        padding: 0.5rem;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
+
+
+.page-section {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    gap: 1.5rem;
+}

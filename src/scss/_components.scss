@@ -1,0 +1,7 @@
+@use './base/variables';
+@use './base/mixins';
+
+/*Knappar navigationsmeny */
+.nav-link {
+    @include mixins.button(variables.$primary-color, variables.$text-light);
+}
