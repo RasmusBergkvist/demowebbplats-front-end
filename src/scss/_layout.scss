@@ -2,22 +2,23 @@
 @use './base/variables';
 
 .container {
-    max-width: 1280px;
-    margin: 0 auto;
+    max-width: 1440px;
 }
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     height: 150px;
-    line-height: 150px;
+    padding-inline: 0.3rem;
 }
 
 nav {
-    li {
-        display: inline-block;
-        text-decoration: none;
-        padding: 0.5rem;
+
+    ul {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
     }
 
     a {
@@ -25,10 +26,10 @@ nav {
     }
 }
 
-
 .page-section {
     display: flex;
     flex-direction: column;
+    width: 900px;
     justify-items: center;
     align-items: center;
     margin: 0 auto;

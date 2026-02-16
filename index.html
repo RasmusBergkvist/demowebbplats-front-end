@@ -14,45 +14,54 @@
 </head>
 
 <body>
-     <button id="theme-switch">Ljust/Mörkt tema</button>
-  <div class="container" id="container">
-    <header>
-      <h1>Demowebbplats: Frontend</h1>
-      <nav>
-        <ul>
-          <li><a href="/" class="nav-link">Startsida</a></li>
-          <li><a href="sass.html" class="nav-link">Sass</a></li>
-          <li><a href="#" class="nav-link">Animation</a></li>
-          <li><a href="#" class="nav-link">Diagram</a></li>
-          <li><a href="#" class="nav-link">Kartfunktion</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-   
-      <section class="page-section">
-        <img src="/laptop.jpg"
-          alt="En laptop som står på ett bord. Framför ligger en anteckningssblock med en penna ovanpå." width="640"
-          height="424" />
-        <h2>Om webbplatsen</h2>
-        <p>
-          Denna demowebbplats som används för att samla och visa olika moment
-          inom kursen frontend-baserad webbutveckling. Webbplatsen byggs ut stegvis under kursens gång.
-        </p>
 
-        <p>
-          I huvudmenyn finns länkar till de olika momenten. Vissa delar är ännu inte
-          implementerade och kommer att utvecklas i kommande uppgifter.
-        </p>
-      </section>
+  <header>
+    <div class="container"></div>
+    <h1>Demowebbplats: Frontend</h1>
+    <nav>
+      <ul>
+        <li><a href="/" class="nav-link">Startsida</a></li>
+        <li><a href="sass.html" class="nav-link">Sass</a></li>
+        <li><a href="#" class="nav-link">Animation</a></li>
+        <li><a href="#" class="nav-link">Diagram</a></li>
+        <li><a href="#" class="nav-link">Kartfunktion</a></li>
+        <li><button id="theme-switch" class="theme-button"><img src="/theme-icon.svg"
+              alt="ikon med en sol där halva solen är ljus och andra delen är mörk">Välj tema</button></li>
+      </ul>
+    </nav>
+    <!-- Mobilmeny (Hambugermeny) --->
+    <button id="mobile-menu" class="mobile-menu-button" aria-label="Öppna webbplastens navigationsmeny">
+      &#9776;
+    </button>
+  </header>
+  <main>
 
-    </main>
-      </div>
-    <footer>
-      <p><strong>Av:</strong> Rasmus Bergkvist, 2026</p>
-      <p><strong>Kurs:</strong> DT211G Frontend-baserad webbutveckling</p>
-      <p><strong>E-post:</strong> <a href="mailto:rabe2502@student.miun.se">rabe2502@student.miun.se</a></p>
-    </footer>
-    <script type="module" src="/src/main.js"></script>
+
+    <section class="page-section">
+      <img src="/laptop.jpg"
+        alt="En laptop som står på ett bord. Framför ligger en anteckningssblock med en penna ovanpå." width="640"
+        height="424" />
+      <h2>Om webbplatsen</h2>
+      <p>
+        Denna demowebbplats som används för att samla och visa olika moment
+        inom kursen frontend-baserad webbutveckling. Webbplatsen byggs ut stegvis under kursens gång.
+      </p>
+
+      <p>
+        I huvudmenyn finns länkar till de olika momenten. Vissa delar är ännu inte
+        implementerade och kommer att utvecklas i kommande uppgifter.
+      </p>
+    </section>
+
+  </main>
+  </div>
+  <footer>
+    <p><strong>Av:</strong> Rasmus Bergkvist, 2026</p>
+    <p><strong>Kurs:</strong> <a href="https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/DT211G/"
+        target="_blank" rel="noopener noreferrer">DT211G Frontend-baserad webbutveckling</a></p>
+    <p><strong>E-post:</strong> <a href="mailto:rabe2502@student.miun.se">rabe2502@student.miun.se</a></p>
+  </footer>
+  <script type="module" src="/src/main.js"></script>
 </body>
+
 </html>
