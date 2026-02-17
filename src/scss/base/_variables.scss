@@ -16,15 +16,17 @@ $heading-margin-top: 0.3em;
 /*-----------------------------------------------------*/
 /*------------------------FÄRGER-----------------------*/
 /*-----------------------------------------------------*/
-$primary-color: #234479;
+$primary-color: #37588d;
 $secondary-color: #8eadb3; 
 
-$primary-light-color: color.scale($primary-color, $lightness: 35%);
+$primary-light-color: color.scale($primary-color, $lightness: 40%);
 $primary-dark-color: color.scale($primary-color, $lightness: -20%);
 
 
 $background-light: #f5f5dc;
 $background-dark: #2c3e50;
+
+$background-menu: #162b49; 
 
 
 $text-light: #ffffff;

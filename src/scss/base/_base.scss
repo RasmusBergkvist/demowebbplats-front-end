@@ -69,7 +69,7 @@ footer {
         }
 
         h2 {
-            color: variables.$primary-light-color;
+            color: variables.$text-light;
         }
 
         .nav-link {
@@ -101,7 +101,7 @@ body.dark-theme {
     }
 
     h2 {
-        color: variables.$primary-light-color;
+        color: variables.$text-light;
     }
 
 }

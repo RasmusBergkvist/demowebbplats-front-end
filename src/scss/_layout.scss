@@ -1,5 +1,6 @@
 @use './base/base';
 @use './base/variables';
+@use './base/mixins';
 
 .container {
     max-width: 1440px;
@@ -26,6 +27,7 @@ nav {
     }
 }
 
+
 .page-section {
     display: flex;
     flex-direction: column;
@@ -39,6 +41,31 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    gap: 1.5rem;
+    height: 150px;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .containter, footer {
+        display: flex;
+        flex-direction: column;
+       
+    }
+
+    .page-section {
+        width: 100%;
+        padding-inline: 1rem;
+        gap:0.5rem;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    footer p {
+        display: block; 
+        gap: 0;
+    }
+
 }

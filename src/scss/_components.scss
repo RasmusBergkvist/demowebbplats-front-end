@@ -7,7 +7,7 @@
 
     body.dark-theme & {
         @include mixins.button(variables.$primary-light-color, variables.$text-light);
-        
+
     }
 }
 
@@ -19,3 +19,68 @@
     font-weight: 600;
     height: 40px;
 }
+
+
+
+.mobile-menu-button {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    z-index: 999;
+
+    @include mixins.button(variables.$primary-color, variables.$text-light);
+
+    body.dark-theme & {
+        @include mixins.button(variables.$primary-light-color, variables.$text-light);
+    }
+
+}
+
+/* Meny för tablett och mobiler */
+@media screen and (max-width: 1024px) {
+
+    /* Visa hamburgermenyn */
+    .mobile-menu-button {
+        display: block
+    }
+
+    /* Dölj desktop menyn  */
+    .menu {
+        display: none;
+    }
+
+    .menu.active {
+        display: block;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        right: 0;
+        width: 200px;
+        background-color: variables.$background-menu;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            margin-top: 150px;
+            min-height: 100vh;
+        }
+
+        li {
+            width: 65%;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            width: 100%;
+
+        }
+
+    }
+
+}
+
+

@@ -3,6 +3,7 @@
 import './scss/main.scss';
 
 
+/* Temaknapp */
 const themeButton = document.querySelector("#theme-switch");
 
 themeButton.addEventListener("click", () => {
@@ -16,3 +17,10 @@ themeButton.addEventListener("click", () => {
     }
 
 });
+
+
+/* Mobilmeny */
+document.querySelector("#mobile-menu").addEventListener("click", () => {
+    document.querySelector("#menu").classList.toggle("active")
+});
+
