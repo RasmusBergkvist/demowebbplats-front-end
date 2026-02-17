@@ -18,7 +18,7 @@
     <header>
         <div class="container"></div>
         <h1>Demowebbplats: Frontend</h1>
-        <nav>
+        <nav class="menu" id="menu">
             <ul>
                 <li><a href="/" class="nav-link">Startsida</a></li>
                 <li><a href="sass.html" class="nav-link">Sass</a></li>
@@ -35,14 +35,45 @@
             &#9776;
         </button>
     </header>
+    </header>
     <main>
 
 
         <section class="page-section">
-            <img src="/sass.svg" alt="Rosa Sass-ogo" width="200" height="150" />
-            <h2>Sass</h2>
+            <img class="sass" src="/sass.svg" alt="Rosa Sass-ogo" width="200" height="150" />
+            <h2>Utvärdering av Sass</h2>
             <p>
-                Här kommer en utvärdering av att börja arbeta med Sass.
+                Till utvecklingen av demowebbsidan användes Sass och dess funktioner istället för vanlig CSS. Att komma
+                igång med att installera Sass till ett Vite-projekt gick bra. Jag hade inte heller några problem med att
+                skapa
+                partials och strukturera upp filerna i projektet. Trots att detta bara är en liten webbplats
+                kändes det ändå bra att kunna strukturera sin kod på ett effektivt sätt.
+            </p>
+
+            <p>
+                Att kunna arbeta med variabler och mixins ser jag som väldigt användbart. Det blir mycket enklare att
+                ändra exempelvis färg, typsnitt och storlek på texter och rubriker från ett ställe, än att
+                behöva leta upp detta på flera olika ställen. Även att kunna återanvända kod genom Sass funktioner till
+                olika
+                delar av webbplatsen gör arbetet smidigare och enklare att underhålla.
+
+            <p>
+                Vidare tycker jag att det är en stor fördel att kunna nestla koden istället för att behöva upprepa
+                elementnamnen likt traditionell CSS-kod. Nestlingen påminde om DOM-hierarkin, vilket gör
+                det lättare att förstå koden samtidigt som man slipper upprepa kod i onödan.
+            </p>
+
+            <p>
+                En nackdel med Sass och dess funktioner är att det ibland kan krävas ändringar på flera ställen.
+                Exempelvis om man har skapat en knapp i en components-partial, där man även använder mixins och
+                variabler, så kan flera av dessa partials behöva ändras. Det kan vara lite förvirrande i början att veta
+                vilka ställen man behöver ändra på. Samtidigt framgår det i koden vilka partials, mixins och variabler
+                som har använts.
+            </p>
+
+            <p>
+                Sammanfattningsvis är jag positiv till att arbeta med Sass och ser det som ett mycket användbart verktyg
+                vid utveckling av webbplatser.
             </p>
         </section>
 
