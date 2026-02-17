@@ -1,2 +1,2 @@
 ## URL till webbplatsen
-demowebbplats-frontend.netlify.app/
+https://demowebbplats-frontend.netlify.app/
