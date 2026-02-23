@@ -4,11 +4,14 @@
     @if $light-theme {
         background-color: variables.$background-light;
         color: variables.$text-dark;
+        transition: background-color 0.5s ease, color 0.5s ease;
+        ;
     }
 
     @else {
         background-color: variables.$background-dark;
         color: variables.$text-light;
+        transition: background-color 0.5s ease, color 0.5s ease;
     }
 }
 

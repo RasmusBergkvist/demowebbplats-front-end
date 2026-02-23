@@ -24,8 +24,6 @@
 
 .mobile-menu-button {
     display: none;
-    justify-content: center;
-    align-items: center;
     font-size: 1.5rem;
     padding: 8px 12px;
     z-index: 999;
@@ -41,13 +39,10 @@
 /* Meny för tablett och mobiler */
 @media screen and (max-width: 1024px) {
 
-    body {
-        overflow-x: hidden; /* Hindrar från att scrolla horisontellt */
-    }
 
     /* Visa hamburgermenyn */
     .mobile-menu-button {
-        display: block
+        display: block;
     }
 
     /* Dölj desktop menyn  */
