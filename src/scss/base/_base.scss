@@ -57,6 +57,12 @@ footer {
 @media (prefers-color-scheme: light) {
     body {
         @include mixins.theme-styles(true);
+
+        
+        h2 {
+            color: variables.$text-dark;
+        }
+
     }
 }
 
@@ -72,6 +78,7 @@ footer {
         h2 {
             color: variables.$text-light;
         }
+
 
         .nav-link {
             background-color: variables.$primary-light-color;
@@ -91,6 +98,12 @@ body.light-theme {
         color: variables.$primary-color;
     }
 
+    
+    h2 {
+        color: variables.$text-dark;
+    }
+
+
 }
 
 
@@ -104,5 +117,4 @@ body.dark-theme {
     h2 {
         color: variables.$text-light;
     }
-
 }

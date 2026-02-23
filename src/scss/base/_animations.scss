@@ -1,0 +1,60 @@
+@use './variables';
+
+/* Animation där rubriken skrivs, suddas ut för att sedan skrivas ut. Sker i olika steg */
+@keyframes typing {
+    0% {
+        width: 0ch;
+    }
+
+    20% {
+        width: 4ch;
+    }
+
+    40% {
+        width: 2ch;
+    }
+
+    60% {
+        width: 6ch;
+    }
+
+    80% {
+        width: 4ch;
+    }
+    100% {
+        width: 9ch;
+    }
+}
+
+
+.typing-animation {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-name: typing, cursor;
+    animation-duration:  4s, 0.5s;
+    animation-delay: 0.5s, 0;
+    animation-timing-function: steps(9);
+    animation-iteration-count: 1, 12;
+    animation-fill-mode: none, forwards;
+    border-right: 3px solid variables.$cursor-dark;
+    padding-right: 5px;
+}
+
+
+/* Mörkt tema till cursor */
+body.dark-theme .typing-animation {
+    border-right-color: variables.$cursor-light;
+}
+
+@keyframes cursor {
+
+    0%, 50% {
+        border-right-color: inherit; /* ärver färgen och ändrar den automatiskt vid byte av tema */
+    }
+    
+    50.1%, 100% {
+        border-right-color: transparent;
+        
+    }
+}
