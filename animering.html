@@ -2,59 +2,84 @@
 <html lang="sv">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="/vite.svg">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-    rel="stylesheet">
-  <title>Demowebbplats Frontend</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <title>Demowebbplats Frontend</title>
 </head>
 
 <body>
 
-  <header>
-    <div class="container"></div>
-    <h1 class="title-animation">Demowebbplats: Frontend</h1>
-    <nav class="menu" id="menu">
-      <ul>
-        <li><a href="/" class="nav-link">Startsida</a></li>
-        <li><a href="/sass" class="nav-link">Sass</a></li>
-        <li><a href="/animering" class="nav-link">Animering</a></li>
-        <li><a href="#" class="nav-link">Diagram</a></li>
-        <li><a href="#" class="nav-link">Kartfunktion</a></li>
-        <li><button id="theme-switch" class="theme-button"><img src="/theme-icon.svg"
-              alt="ikon med en sol där halva solen är ljus och andra delen är mörk">Välj tema</button></li>
-      </ul>
-    </nav>
-    <!-- Mobilmeny (Hambugermeny) --->
-    <button id="mobile-menu" class="mobile-menu-button" aria-label="Öppna webbplastens navigationsmeny">
-      &#9776;
-    </button>
-  </header>
-  <main>
+    <header>
+        <div class="container"></div>
+        <h1>Demowebbplats: Frontend</h1>
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="/" class="nav-link">Startsida</a></li>
+                <li><a href="/sass" class="nav-link">Sass</a></li>
+                <li><a href="/animering" class="nav-link">Animering</a></li>
+                <li><a href="#" class="nav-link">Diagram</a></li>
+                <li><a href="#" class="nav-link">Kartfunktion</a></li>
+                <li><button id="theme-switch" class="theme-button"><img src="/theme-icon.svg"
+                            alt="ikon med en sol där halva solen är ljus och andra delen är mörk">Välj tema</button>
+                </li>
+            </ul>
+        </nav>
+        <!-- Mobilmeny (Hambugermeny) --->
+        <button id="mobile-menu" class="mobile-menu-button" aria-label="Öppna webbplastens navigationsmeny">
+            &#9776;
+        </button>
+    </header>
+    <main>
 
 
-    <section class="page-section">
-      <img src="/laptop.jpg"
-        alt="En laptop som står på ett bord. Framför ligger en anteckningssblock med en penna ovanpå." width="640"
-        height="424" />
-      <h2 class ="typing-animation">Animering</h2>
-      <p>
-        Här beskrivs vilka grafiska effekter som finns på sidan. </p>
-    </section>
+        <section class="page-section">
+            <img src="/keyboard.jpg"
+                alt="En laptop som står på ett bord. Framför ligger en anteckningssblock med en penna ovanpå."
+                width="640" height="424" class="image-animation" />
 
-  </main>
-  </div>
-  <footer>
-    <p><strong>Av:</strong> Rasmus Bergkvist, 2026</p>
-    <p><strong>Kurs:</strong> <a href="https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/DT211G/"
-        target="_blank" rel="noopener noreferrer">DT211G Frontend-baserad webbutveckling</a></p>
-    <p><strong>E-post:</strong> <a href="mailto:rabe2502@student.miun.se">rabe2502@student.miun.se</a></p>
-  </footer>
-  <script type="module" src="/src/main.js"></script>
+            <h2 class="typing-animation">Animering</h2>
+            <p>Här beskrivs vilka grafiska effekter som finns på webbplatsen. </p>
+
+            <p>Rubriken på sidan har en animation där varje bokstav skrivs ut, och några studsas ut innan de slutligen
+                skrivs ut igen. Animationen är satt med width baserat på antalet tecken i rubriken. Det finns även en
+                blinkande kantlinje till höger om rubriken som fungerar som en teckenpekare.</p>
+
+            <p>Bilden ovanför rubriken skalas upp när man för muspekaren över den, med en zoom-effekt, för att sedan
+                återgå till sin ursprungliga storlek när muspekaren tas bort.</p>
+
+            <p>Här under finns även ett rörligt objekt som går från vänster till höger och ändras från en fyrkant till en
+                boll. Om man för muspekaren över objektet så pausas animationen.</p>
+
+            <p>En annan animation är att rubriken "Demowebbplats: Frontend" har en text-shadow-effekt som ökar i
+                omfattning, för att sedan dra ihop sig igen. Denna effekt syns endast på startsidan.</p>
+
+            <p>Övriga effekter som har lagts till är att mobilmenyn glider in mjuk från höger sida när man klickar på
+                den. Även temaknappen har även mjukare övergång när man manuellt byter färgtema.</p>
+
+
+            <div class="moving-object">
+            </div>
+
+        </section>
+
+
+
+
+    </main>
+    </div>
+    <footer>
+        <p><strong>Av:</strong> Rasmus Bergkvist, 2026</p>
+        <p><strong>Kurs:</strong> <a href="https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/DT211G/"
+                target="_blank" rel="noopener noreferrer">DT211G Frontend-baserad webbutveckling</a></p>
+        <p><strong>E-post:</strong> <a href="mailto:rabe2502@student.miun.se">rabe2502@student.miun.se</a></p>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
 </body>
 
 </html>

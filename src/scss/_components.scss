@@ -39,13 +39,11 @@
 /* Meny för tablett och mobiler */
 @media screen and (max-width: 1024px) {
 
-
     /* Visa hamburgermenyn */
     .mobile-menu-button {
         display: block;
     }
 
-    /* Dölj desktop menyn  */
     .menu {
         display: flex;
         flex-direction: column;
@@ -56,6 +54,7 @@
         right: 0;
         width: 200px;
         background-color: variables.$background-menu;
+        z-index: 990;
 
         transform: translateX(100%); /* Menyn börjar utanför skärmen. */
         transition-timing-function: ease-out;

@@ -21,6 +21,7 @@
     80% {
         width: 4ch;
     }
+
     100% {
         width: 9ch;
     }
@@ -30,9 +31,8 @@
 .typing-animation {
     display: inline-block;
     overflow: hidden;
-    white-space: nowrap;
     animation-name: typing, cursor;
-    animation-duration:  4s, 0.5s;
+    animation-duration: 4s, 0.5s;
     animation-delay: 0.5s, 0;
     animation-timing-function: steps(9);
     animation-iteration-count: 1, 12;
@@ -49,12 +49,74 @@ body.dark-theme .typing-animation {
 
 @keyframes cursor {
 
-    0%, 50% {
-        border-right-color: inherit; /* ärver färgen och ändrar den automatiskt vid byte av tema */
+    0%,
+    50% {
+        border-right-color: inherit;
+        /* ärver färgen och ändrar den automatiskt vid byte av tema */
+    }
+
+    50.1%,
+    100% {
+        border-right-color: transparent;
+
+    }
+}
+
+
+/* text-skugga på h1 på startsidan */
+.title-animation {
+    animation: glowing 2s 5 linear alternate;
+}
+
+@keyframes glowing {
+ 
+    0% {
+        text-shadow:  0 0 5px #577da1, 0 0 10px #577da1, 0 0 15px #577da1;
+    }
+
+    50% {
+        text-shadow:  0 0 20px #577da1,0 0 30px #577da1, 0 0 40px #577da1; 
+    }
+
+    100% {
+        text-shadow: 0 0 5px #577da1, 0 0 10px #577da1, 0 0 15px #577da1; 
+    }
+}
+
+/* Bild på animationssidan */
+.image-animation {
+    width: 400px;
+    height: auto;
+    transition: transform 0.8s linear;
+    border-radius: 10px;
+
+    &:hover { 
+    transform: scale(1.05);;
+    }
+}
+
+
+.moving-object {
+    width: 75px;
+    height: 75px;
+    background-color: variables.$secondary-color;
+    animation: move-and-shape 3s ease-in-out infinite alternate;
+    animation-play-state: running;
+
+    &:hover {
+        animation-play-state: paused;
+    }
+
+    
+}
+
+@keyframes move-and-shape {
+    from {
+        transform: translateX(-100%);
     }
     
-    50.1%, 100% {
-        border-right-color: transparent;
-        
+    to {
+        transform: translateX(100%);
+        border-radius: 50%;
     }
 }
