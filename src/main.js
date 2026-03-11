@@ -2,6 +2,10 @@
 
 import './scss/main.scss';
 
+/**
+ * 
+ */
+
 
 const themeButton = document.querySelector("#theme-switch");
 
@@ -37,4 +41,6 @@ themeButton.addEventListener("click", () => {
 document.querySelector("#mobile-menu").addEventListener("click", () => {
     document.querySelector("#menu").classList.toggle("active")
 });
+
+
 
