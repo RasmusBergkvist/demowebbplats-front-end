@@ -1,14 +1,15 @@
 "use strict";
-
 import Chart from 'chart.js/auto';
 
-let allData = [];
+let courseListChart;
+let programListChart;
 
 /**
  * Hämtar antagningsdata HT2025 för MIUN:s program och kurser.
  * Datan hämtas asynkront från URL:en med fetch-anrop.
  * Vid svar omvandlas datan till JSON-format och lagras i arrayen allData.
  * @error Eventuella fel i anropet fångas upp via catch och skrivs ut i konsolen.
+ * @returns {Array} allData - Antagningsstatisk HT2025, Miun.
  */
 
 async function getData() {
@@ -16,9 +17,8 @@ async function getData() {
 
     try {
         const response = await fetch(url);
-        allData = await response.json();
-
-        return allData;
+        const data = await response.json();
+        return data
 
 
     } catch (error) {
@@ -31,24 +31,24 @@ async function getData() {
  * getCourses
  * 
  * Funktionen filtrerar ut endast kurser, omvandlar antalet sökande till nummer,
- * sorterar kurserna efter flest sökande och returnerar de 6 mest populära.
+ * Sorterar kurserna efter flest sökande och returnerar de 6 mest populära.
  * @param {Array} allData - Array med MIUN:s antagningsdata för HT25
- * @returns {Array<{name: string, applicantsTotal: number}>} - Array med upp till 6 objekt  varje objekt innehåller kursnamn och antal sökande
+ * @returns {Array<{name: string, applicantsTotal: number}>} - Array med upp till 6 objekt med kursnamn och antal sökande
  */
-function getCourses(allData) {
-    /* Filterar endast kurser */
-    const courses = allData.filter(course => course.type === "Kurs");
+function getCourses(data) {
 
-    /* Skapar nytt objekt med kursnamn och antal sökande */
+    const courses = data.filter(course => course.type === "Kurs");
+
+
     const courseList = courses.map(course => ({
         name: course.name,
         applicantsTotal: Number(course.applicantsTotal)
     }));
 
-    /* Sortera kurser som har flest sökande */
+
     courseList.sort((a, b) => b.applicantsTotal - a.applicantsTotal);
 
-    /* De 6 mest sökta kurserna HT25 */
+
     const mostAppliedCourses = courseList.slice(0, 6);
 
 
@@ -56,40 +56,17 @@ function getCourses(allData) {
 
 }
 
-async function courseChart() {
-    const allData = await getData();
-    const mostAppliedCourses = getCourses(allData);
-
-    const labels = mostAppliedCourses.map(course => course.name);
-    const data = mostAppliedCourses.map(course => course.applicantsTotal);
-
-    const ctx = document.getElementById('barChart');
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: 'Antal sökande till kursen',
-                data: data,
-                borderWidth: 1,
-                
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-
-}
-
-function getPrograms(allData) {
+/**
+ * getProgram
+ * 
+ * Funktionen filtrerar ut endast program, omvandlar antalet sökande till nummer,
+ * Sorterar programmen efter flest sökande och returnerar de 5 mest populära.
+ * @param {Array} data - Array med MIUN:s antagningsdata för HT25
+ * @returns {Array<{name: string, applicantsTotal: number}>} - Array med upp till 5 objekt med programmets namn och antal sökande.
+ */
+function getPrograms(data) {
     /* Filterar endast program */
-    const programs = allData.filter(program => program.type === "Program");
+    const programs = data.filter(program => program.type === "Program");
 
 
     /* Skapar nytt objekt med programnamn och antal sökande */
@@ -106,23 +83,106 @@ function getPrograms(allData) {
     return mostAppliedPrograms;
 }
 
-async function programChart() {
-    const allData = await getData();
-    const mostAppliedPrograms = getPrograms(allData);
+
+
+
+
+
+function getChartColors() {
+    if (document.body.classList.contains("dark-theme")) {
+        return { textColor: '#FFFFFF' };
+    } else {
+        return { textColor: '#000000' };
+    }
+}
+
+
+
+async function courseChart(data) {
+
+    const mostAppliedCourses = getCourses(data);
+
+    const labels = mostAppliedCourses.map(course => course.name);
+    const values = mostAppliedCourses.map(course => course.applicantsTotal);
+
+    const ctx = document.getElementById('barChart');
+    const colors = getChartColors();
+
+    courseListChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Antal sökande till kursen',
+                data: values,
+                borderWidth: 1,
+
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    ticks: {
+                        color: colors.textColor,
+                        callback: function (value, index) {
+                            const label = this.getLabelForValue(index);
+                            const maxLength = 36;
+
+                            if (label.length > maxLength) {
+                                // om större än 36 tecken önskas radbrytning
+                                return label.match(/.{1,36}/g).map((segment, i, arr) => {
+                                    // Lägg till bindestreck om segmentet inte slutar med mellanslag
+                                    // och nästa segment inte börjar med mellanslag
+                                    if (
+                                        i < arr.length - 1 &&
+                                        !segment.endsWith(' ') &&
+                                        !arr[i + 1].startsWith(' ')
+                                    ) {
+                                        return segment.trimEnd() + '-';
+                                    }
+                                    return segment.trim();
+                                });
+                            }
+
+                            return label;
+                        }
+                    },
+          
+                },
+                y: {
+                    ticks: {
+                        color: colors.textColor
+                    },
+                 
+                    beginAtZero: true
+                }
+            }
+
+        }
+
+
+    });
+
+    return courseListChart;
+}
+
+async function programChart(data) {
+
+    const mostAppliedPrograms = getPrograms(data);
 
     const labels = mostAppliedPrograms.map(program => program.name);
-    const data = mostAppliedPrograms.map(program => program.applicantsTotal);
-
+    const values = mostAppliedPrograms.map(program => program.applicantsTotal);
+    const colors = getChartColors();
 
 
     const ctx = document.getElementById('doughnutChart');
 
-    new Chart(ctx, {
+    programListChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: labels,
             datasets: [{
-                data: data,
+                data: values,
                 label: 'Antal sökande till programmet',
                 backgroundColor: [
                     'rgb(255, 99, 132)',
@@ -134,12 +194,42 @@ async function programChart() {
                 hoverOffset: 4
             }]
         },
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: colors.textColor
+                    }
+                }
+            }
+        }
     });
+
+    return programListChart;
+}
+
+function chartTheme() {
+    const colors = getChartColors();
+
+    if (courseListChart) {
+        courseListChart.options.scales.x.ticks.color = colors.textColor;
+        courseListChart.options.scales.y.ticks.color = colors.textColor;
+
+        courseListChart.options.plugins.legend.labels.color = colors.textColor;
+
+        courseListChart.update();
+        
+    }
+    if(programListChart) {
+        programListChart.options.plugins.legend.labels.color = colors.textColor;
+        
+        programListChart.update();
+        
+    }
+    
+
 }
 
 
 
-
-programChart();
-courseChart();
-export { getData }
+export { getData, programChart, courseChart, chartTheme }

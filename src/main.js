@@ -1,17 +1,17 @@
 "use strict";
 
 import './scss/main.scss';
-import { getData } from './statistic.js';
+import { getData, programChart, courseChart, chartTheme } from './statistic.js';
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    getData();
+document.addEventListener("DOMContentLoaded", async () => {
+    const applicationData = await getData();
+    
+    await programChart(applicationData);
+    await courseChart(applicationData);
    
 });
-
-
-
 
 
 
@@ -44,6 +44,8 @@ themeButton.addEventListener("click", () => {
         document.body.classList.add("dark-theme");
         localStorage.setItem("theme", "dark-theme");
     }
+
+    chartTheme();
 
 });
 
