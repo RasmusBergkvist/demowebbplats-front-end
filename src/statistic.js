@@ -17,6 +17,7 @@ async function getData() {
     try {
         const response = await fetch(url);
         allData = await response.json();
+
         return allData;
 
 
@@ -44,7 +45,7 @@ function getCourses(allData) {
         applicantsTotal: Number(course.applicantsTotal)
     }));
 
-    /* Sortera flest kurser som har flest sökande */
+    /* Sortera kurser som har flest sökande */
     courseList.sort((a, b) => b.applicantsTotal - a.applicantsTotal);
 
     /* De 6 mest sökta kurserna HT25 */
@@ -62,8 +63,6 @@ async function courseChart() {
     const labels = mostAppliedCourses.map(course => course.name);
     const data = mostAppliedCourses.map(course => course.applicantsTotal);
 
-
-
     const ctx = document.getElementById('barChart');
 
     new Chart(ctx, {
@@ -71,9 +70,10 @@ async function courseChart() {
         data: {
             labels: labels,
             datasets: [{
-                label: 'Antal sökande till de 6 populäraste kurserna',
+                label: 'Antal sökande till kursen',
                 data: data,
-                borderWidth: 1
+                borderWidth: 1,
+                
             }]
         },
         options: {
@@ -86,6 +86,60 @@ async function courseChart() {
     });
 
 }
-courseChart();
 
+function getPrograms(allData) {
+    /* Filterar endast program */
+    const programs = allData.filter(program => program.type === "Program");
+
+
+    /* Skapar nytt objekt med programnamn och antal sökande */
+    const programList = programs.map(program => ({
+        name: program.name,
+        applicantsTotal: Number(program.applicantsTotal)
+    }));
+
+    /* Sortera program som har flest sökande */
+    programList.sort((a, b) => b.applicantsTotal - a.applicantsTotal);
+
+    const mostAppliedPrograms = programList.slice(0, 5);
+
+    return mostAppliedPrograms;
+}
+
+async function programChart() {
+    const allData = await getData();
+    const mostAppliedPrograms = getPrograms(allData);
+
+    const labels = mostAppliedPrograms.map(program => program.name);
+    const data = mostAppliedPrograms.map(program => program.applicantsTotal);
+
+
+
+    const ctx = document.getElementById('doughnutChart');
+
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                label: 'Antal sökande till programmet',
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(153, 102, 255)'
+                ],
+                hoverOffset: 4
+            }]
+        },
+    });
+}
+
+
+
+
+programChart();
+courseChart();
 export { getData }

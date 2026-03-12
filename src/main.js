@@ -6,7 +6,7 @@ import { getData } from './statistic.js';
 
 
 document.addEventListener("DOMContentLoaded", () => {
-   getData();
+    getData();
    
 });
 
