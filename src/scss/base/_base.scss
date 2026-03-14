@@ -31,12 +31,21 @@ h2 {
     margin-top: variables.$heading-margin-top;
 }
 
+h3 {
+    font-size: variables.$h3-size;
+    margin-bottom: variables.$heading-margin-bottom;
+    margin-top: variables.$heading-margin-top;
+    text-align: center;
+}
+
+
 p {
     line-height: 1.5;
     font-size: variables.$text-size;
     max-width: 65ch;
     margin-bottom: 1rem;
 }
+
 
 footer {
     background-color: variables.$primary-dark-color;

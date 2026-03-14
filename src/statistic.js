@@ -11,7 +11,6 @@ let programListChart;
  * @error Eventuella fel i anropet fångas upp via catch och skrivs ut i konsolen.
  * @returns {Array} allData - Antagningsstatisk HT2025, Miun.
  */
-
 async function getData() {
     const url = "https://mallarmiun.github.io/Frontend-baserad-webbutveckling/Moment%205%20-%20Dynamiska%20webbplatser/statistik_sokande_ht25.json";
 
@@ -85,9 +84,10 @@ function getPrograms(data) {
 
 
 
-
-
-
+/**
+ * getChartColors
+ * @returns {textColor: string} - returner färginställningarna vit eller svart  beroende om temat är mörkt eller inte.
+ */
 function getChartColors() {
     if (document.body.classList.contains("dark-theme")) {
         return { textColor: '#FFFFFF' };
@@ -97,7 +97,12 @@ function getChartColors() {
 }
 
 
+/**
+ * 
+ * @param {Array} data - Array med MIUN:s antagningsdata för HT25
+ * @returns {Chart} - Returnerar ett chartjs diagram med kursnamn och antal sökande i stapeldiagram.
 
+ */
 async function courseChart(data) {
 
     const mostAppliedCourses = getCourses(data);
@@ -166,6 +171,11 @@ async function courseChart(data) {
     return courseListChart;
 }
 
+/**
+ * 
+ * @param {Array} data -  Array med MIUN:s antagningsdata för HT25
+ * @returns {Chart} - Returner ett chartjs diagram med kursnamn och antal sökande i stapeldiagram.
+ */
 async function programChart(data) {
 
     const mostAppliedPrograms = getPrograms(data);
@@ -208,6 +218,9 @@ async function programChart(data) {
     return programListChart;
 }
 
+/**
+ * Uppdaterar digrammets färger beroende på mörkt eller ljust tema.
+ */
 function chartTheme() {
     const colors = getChartColors();
 
