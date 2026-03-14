@@ -14,6 +14,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 
+/* Karta */
+
+const map = L.map('map').setView([56.563107, 14.120924], 7);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+const marker = L.marker([56.563107, 14.120924]).addTo(map);
+marker.bindPopup("Här bor jag!").openPopup();
+
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("Denna plats har koordinaterna: " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
 
 /* Temaknapp*/
 

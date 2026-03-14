@@ -86,7 +86,7 @@ function getPrograms(data) {
 
 /**
  * getChartColors
- * @returns {textColor: string} - returner färginställningarna vit eller svart  beroende om temat är mörkt eller inte.
+ * @returns {{textColor: string}} - returner färginställningarna vit eller svart  beroende om temat är mörkt eller inte.
  */
 function getChartColors() {
     if (document.body.classList.contains("dark-theme")) {
@@ -100,8 +100,9 @@ function getChartColors() {
 /**
  * 
  * @param {Array} data - Array med MIUN:s antagningsdata för HT25
+ * @property {string []} labels - Array som inneåller textsträng kursnamnen
+ * @property {number []} values - Array som innehåller nummer med antal sökande till kurserna.
  * @returns {Chart} - Returnerar ett chartjs diagram med kursnamn och antal sökande i stapeldiagram.
-
  */
 async function courseChart(data) {
 
@@ -174,6 +175,8 @@ async function courseChart(data) {
 /**
  * 
  * @param {Array} data -  Array med MIUN:s antagningsdata för HT25
+ *  @property {string []} labels - Array som inneåller textsträng progranamn,
+ * @property {number []} values - Array som innehåller nummer med antal sökande till program.
  * @returns {Chart} - Returner ett chartjs diagram med kursnamn och antal sökande i stapeldiagram.
  */
 async function programChart(data) {

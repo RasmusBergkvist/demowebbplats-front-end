@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <title>Demowebbplats Frontend</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="container"></div>
+        <h1 class="title-animation">Demowebbplats: Frontend</h1>
+        <nav class="menu" id="menu">
+            <ul>
+                <li><a href="/" class="nav-link">Startsida</a></li>
+                <li><a href="/sass" class="nav-link">Sass</a></li>
+                <li><a href="/animering" class="nav-link">Animering</a></li>
+                <li><a href="/diagram" class="nav-link">Diagram</a></li>
+                <li><a href="/karta" class="nav-link">Karta</a></li>
+                <li><button id="theme-switch" class="theme-button"><img src="/theme-icon.svg"
+                            alt="ikon med en sol där halva solen är ljus och andra delen är mörk">Välj tema</button>
+                </li>
+            </ul>
+        </nav>
+        <!-- Mobilmeny (Hambugermeny) --->
+        <button id="mobile-menu" class="mobile-menu-button" aria-label="Öppna webbplastens navigationsmeny">
+            &#9776;
+        </button>
+    </header>
+    <main>
+
+
+        <section class="page-section">
+            <h2>Karta</h2>
+            <p>
+                Sök plats på kartan (under utveckling.)
+            </p>
+            <input type="search">
+            <div id="map" class="map"></div>
+
+
+        </section>
+
+    </main>
+    </div>
+    <footer>
+        <p><strong>Av:</strong> Rasmus Bergkvist, 2026</p>
+        <p><strong>Kurs:</strong> <a href="https://www.miun.se/utbildning/kursplaner-och-utbildningsplaner/DT211G/"
+                target="_blank" rel="noopener noreferrer">DT211G Frontend-baserad webbutveckling</a></p>
+        <p><strong>E-post:</strong> <a href="mailto:rabe2502@student.miun.se">rabe2502@student.miun.se</a></p>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</body>
+
+</html>
