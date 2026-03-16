@@ -43,10 +43,14 @@
 
         <section class="page-section">
             <h2>Karta</h2>
-            <p>
-                Sök plats på kartan (under utveckling.)
-            </p>
-            <input type="search">
+                <label for="search">Sök plats på kartan</label>
+                <div class="search-wrapper">
+                    <input type="search" id="search" class="search-field" name="search" placeholder="Sök efter en plats">
+           
+                <button id="searchBtn" class="searchBtn"><img src="/search-icon.svg"
+              alt="förstorningsglas">Sök</button>
+            </div>
+            <span id="message" class="messege"></span>
             <div id="map" class="map"></div>
 
 
@@ -60,9 +64,11 @@
                 target="_blank" rel="noopener noreferrer">DT211G Frontend-baserad webbutveckling</a></p>
         <p><strong>E-post:</strong> <a href="mailto:rabe2502@student.miun.se">rabe2502@student.miun.se</a></p>
     </footer>
-    <script type="module" src="/src/main.js"></script>
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="/src/main.js"></script>
+
 </body>
 
 </html>

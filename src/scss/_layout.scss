@@ -37,14 +37,7 @@ nav {
     margin: 0 auto;
 }
 
-.doughnutChart {
-    margin-bottom: 2rem;
-}
 
-.map {
-    height: 400px;
-    width: 100%;
-}
 
 footer {
     display: flex;
@@ -96,8 +89,10 @@ footer {
     }
 
 }
+
 /* Mobilläge för diagram */
 @media screen and (max-width: 600px) {
+
     .barChart,
     .doughnutChart {
         width: 100%;

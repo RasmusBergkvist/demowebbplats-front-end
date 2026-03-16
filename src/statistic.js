@@ -112,6 +112,7 @@ async function courseChart(data) {
     const values = mostAppliedCourses.map(course => course.applicantsTotal);
 
     const ctx = document.getElementById('barChart');
+    if (ctx === null) return; /* Avbryter om det inte finns något Canvas-element */
     const colors = getChartColors();
 
     courseListChart = new Chart(ctx, {
@@ -189,6 +190,7 @@ async function programChart(data) {
 
 
     const ctx = document.getElementById('doughnutChart');
+    if (ctx === null) return; /* Avbryter om det inte finns något Canvas-element */
 
     programListChart = new Chart(ctx, {
         type: 'doughnut',

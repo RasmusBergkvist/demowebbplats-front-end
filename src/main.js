@@ -1,40 +1,18 @@
 "use strict";
-
 import './scss/main.scss';
 import { getData, programChart, courseChart, chartTheme } from './statistic.js';
+import { startingMap, getPosition } from './map.js';
 
 
 
 document.addEventListener("DOMContentLoaded", async () => {
     const applicationData = await getData();
-    
+
     await programChart(applicationData);
     await courseChart(applicationData);
-   
-});
 
 
-/* Karta */
 
-const map = L.map('map').setView([56.563107, 14.120924], 7);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-const marker = L.marker([56.563107, 14.120924]).addTo(map);
-marker.bindPopup("Här bor jag!").openPopup();
-
-var popup = L.popup();
-
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("Denna plats har koordinaterna: " + e.latlng.toString())
-        .openOn(map);
-}
-
-map.on('click', onMapClick);
 
 /* Temaknapp*/
 
@@ -77,4 +55,21 @@ document.querySelector("#mobile-menu").addEventListener("click", () => {
 });
 
 
+const searchInput = document.querySelector('#search');
+const searchBtn = document.querySelector('#searchBtn');
 
+/*Karta */
+startingMap();
+
+
+searchBtn.addEventListener('click', () => {
+    const place = searchInput.value;
+
+    getPosition(place);
+
+});
+searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') searchBtn.click();
+});
+
+});
