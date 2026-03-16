@@ -89,13 +89,3 @@ footer {
     }
 
 }
-
-/* Mobilläge för diagram */
-@media screen and (max-width: 600px) {
-
-    .barChart,
-    .doughnutChart {
-        width: 100%;
-        height: auto;
-    }
-}

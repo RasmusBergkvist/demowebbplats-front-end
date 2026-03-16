@@ -8,17 +8,18 @@ let marker;
 /*Start för kartan*/
 function startingMap() {
     const mapEl = document.querySelector('#map');
-    if (mapEl === null) return; /* Avbryter om det inte finns något Canvas-element */
+    if (mapEl === null) return; /* Avbryter om det inte finns något element */
     map = L.map('map').setView([56.563107, 14.120924], 7);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
+        maxZoom: 18,
+        detectRetina: true,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+   
 
     marker = L.marker([56.563107, 14.120924]).addTo(map);
+ 
     marker.bindPopup("Här bor jag!").openPopup();
-
-    return { map, marker }
 }
 
 
@@ -29,10 +30,9 @@ async function getPosition(place) {
         const url = `https://nominatim.openstreetmap.org/search?format=json&q=${place}`;
         const response = await fetch(url);
         const data = await response.json();
-        console.log('Sökplats:', place);
 
         if (data.length === 0) {
-            messageSpan.innerHTML = 'Platsen hittas inte'
+            messageSpan.innerHTML = 'Du måste skriva platsens namn'
         } else {
             messageSpan.innerHTML = "";
         }
@@ -66,4 +66,4 @@ async function getPosition(place) {
 
 }
 
-export { startingMap, getPosition }
+export { startingMap, getPosition}
