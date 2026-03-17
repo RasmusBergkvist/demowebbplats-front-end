@@ -10,6 +10,7 @@ function startingMap() {
     const mapEl = document.querySelector('#map');
     if (mapEl === null) return; /* Avbryter om det inte finns något element */
     map = L.map('map').setView([56.563107, 14.120924], 7);
+    
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         detectRetina: true,
@@ -22,7 +23,11 @@ function startingMap() {
     marker.bindPopup("Här bor jag!").openPopup();
 }
 
-
+/**
+ * getPosistion - Hämtar koordinater,uppdaterar kartan och flyttar markören.
+ * @param {string} place - Hämtar platsen namns som användaren har sök efter
+ * @error Eventuella fel i anropet fångas upp via catch och skrivs ut i konsolen.
+ */
 
 async function getPosition(place) {
 
@@ -30,6 +35,7 @@ async function getPosition(place) {
         const url = `https://nominatim.openstreetmap.org/search?format=json&q=${place}`;
         const response = await fetch(url);
         const data = await response.json();
+        console.log(data)
 
         if (data.length === 0) {
             messageSpan.innerHTML = 'Du måste skriva platsens namn'
