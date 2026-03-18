@@ -1,7 +1,7 @@
 "use strict";
 import './scss/main.scss';
 import { getData, programChart, courseChart, chartTheme } from './statistic.js';
-import { startingMap, getPosition} from './map.js';
+import { startMap, getPosition} from './map.js';
 
 
 
@@ -55,8 +55,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const searchInput = document.querySelector('#search');
     const searchBtn = document.querySelector('#searchBtn');
 
-    startingMap();
-
+    startMap();
+/**
+ * Eventlyssnare på sökknappen som hämtar värde från input och anropar functionen getPosition 
+ */
 
     searchBtn.addEventListener('click', () => {
         const place = searchInput.value;
@@ -64,8 +66,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         getPosition(place);
 
     });
-    searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') searchBtn.click();
+
+    /** 
+     * @param {KeyboardEvent} event- Tangetbordshändelsen som triggar sökning när trycker på enter
+     */
+    searchInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') searchBtn.click();
     });
 
 });

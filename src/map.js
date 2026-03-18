@@ -5,8 +5,11 @@ const messageSpan = document.querySelector('#message');
 let map;
 let marker;
 
-/*Start för kartan*/
-function startingMap() {
+/**
+ * startMap
+ * Funktion skapar karta med markör till startpunkt 56.563107, 14.120924
+ */
+function startMap() {
     const mapEl = document.querySelector('#map');
     if (mapEl === null) return; /* Avbryter om det inte finns något element */
     map = L.map('map').setView([56.563107, 14.120924], 7);
@@ -44,7 +47,6 @@ async function getPosition(place) {
         }
 
 
-
         /* Lattitud och longitude */
         const lat = parseFloat(data[0].lat);
         const lon = parseFloat(data[0].lon);
@@ -72,4 +74,4 @@ async function getPosition(place) {
 
 }
 
-export { startingMap, getPosition}
+export { startMap, getPosition}

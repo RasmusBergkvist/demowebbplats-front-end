@@ -8,8 +8,8 @@ let programListChart;
  * Hämtar antagningsdata HT2025 för MIUN:s program och kurser.
  * Datan hämtas asynkront från URL:en med fetch-anrop.
  * Vid svar omvandlas datan till JSON-format och lagras i arrayen allData.
- * @error Eventuella fel i anropet fångas upp via catch och skrivs ut i konsolen.
- * @returns {Array} allData - Antagningsstatisk HT2025, Miun.
+ * @throw  Eventuella fel i anropet fångas upp via catch och skrivs ut i konsolen.
+ * @returns {Array} data - Antagningsstatisk HT2025, Miun.
  */
 async function getData() {
     const url = "https://mallarmiun.github.io/Frontend-baserad-webbutveckling/Moment%205%20-%20Dynamiska%20webbplatser/statistik_sokande_ht25.json";
@@ -31,7 +31,7 @@ async function getData() {
  * 
  * Funktionen filtrerar ut endast kurser, omvandlar antalet sökande till nummer,
  * Sorterar kurserna efter flest sökande och returnerar de 6 mest populära.
- * @param {Array} allData - Array med MIUN:s antagningsdata för HT25
+ * @param {Array} data - Array med MIUN:s antagningsdata för HT25
  * @returns {Array<{name: string, applicantsTotal: number}>} - Array med upp till 6 objekt med kursnamn och antal sökande
  */
 function getCourses(data) {
@@ -98,10 +98,8 @@ function getChartColors() {
 
 
 /**
- * 
+ * courseChart
  * @param {Array} data - Array med MIUN:s antagningsdata för HT25
- * @property {string []} labels - Array som inneåller textsträng kursnamnen
- * @property {number []} values - Array som innehåller nummer med antal sökande till kurserna.
  * @returns {Chart} - Returnerar ett chartjs diagram med kursnamn och antal sökande i stapeldiagram.
  */
 async function courseChart(data) {
@@ -174,10 +172,8 @@ async function courseChart(data) {
 }
 
 /**
- * 
+ * programChart
  * @param {Array} data -  Array med MIUN:s antagningsdata för HT25
- *  @property {string []} labels - Array som inneåller textsträng progranamn,
- * @property {number []} values - Array som innehåller nummer med antal sökande till program.
  * @returns {Chart} - Returner ett chartjs diagram med kursnamn och antal sökande i stapeldiagram.
  */
 async function programChart(data) {
