@@ -35,6 +35,12 @@ nav {
     justify-items: center;
     align-items: center;
     margin: 0 auto;
+
+    .laptop {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
 }
 
 
@@ -60,12 +66,6 @@ footer {
     .page-section {
         width: 100%;
         padding: 1rem;
-
-        .laptop {
-            width: 100%;
-            height: auto;
-            padding: 1rem;
-        }
 
     }
 
