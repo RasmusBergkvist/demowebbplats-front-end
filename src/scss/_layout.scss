@@ -37,8 +37,6 @@ nav {
     margin: 0 auto;
 
     .laptop {
-        width: 100%;
-        height: auto;
         border-radius: 10px;
     }
 }
@@ -67,6 +65,11 @@ footer {
         width: 100%;
         padding: 1rem;
 
+        .laptop {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
     }
 
     footer {
