@@ -50,16 +50,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.querySelector("#menu").classList.toggle("active")
     });
 
-    /*Karta */
-  
+    /*Hämtar DOM-element från input och sökknapp */
     const searchInput = document.querySelector('#search');
     const searchBtn = document.querySelector('#searchBtn');
-
+/**
+ * Hämtar kartan när sidan har laddats klar.
+ */
     startMap();
 /**
  * Eventlyssnare på sökknappen som hämtar värde från input och anropar functionen getPosition 
  */
-
     searchBtn.addEventListener('click', () => {
         const place = searchInput.value;
 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     /** 
-     * @param {KeyboardEvent} event- Tangetbordshändelsen som triggar sökning när trycker på enter
+     * @param {KeyboardEvent} eventTangetbordshändelsen som triggar sökning när trycker på enter
      */
     searchInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') searchBtn.click();
